@@ -3,14 +3,30 @@
 }
 
 .App-logo {
-  height: 40vmin;
+  height: 10rem;
   pointer-events: none;
+  justify-content: center;
+}
+
+.Logo-carrito {
+  height: 2rem;
+  margin-top: 1rem;
+  align-items: center;
 }
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
+}
+
+.contenedor-items {
+  border-style: dotted;
+  margin-top: 1rem;
+  width: 100rem;
+  height: 30rem;
+  background-color: grey;
+  color: white
 }
 
 .App-header {

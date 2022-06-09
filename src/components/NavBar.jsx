@@ -1,11 +1,16 @@
+import CartWidget from "./CartWidget";
+
 function NavBar() {
     return (
+        <div>
         <nav>
             <ul>
-                <li>Categoría A</li>
-                <li>Categoría B</li>
+                <li>Stock</li>
+                <li>Contacto</li>
+                <CartWidget></CartWidget>    
             </ul>
         </nav>
+        </div>
     )
 }
 

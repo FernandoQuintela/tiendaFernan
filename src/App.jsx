@@ -1,17 +1,15 @@
 import logoTienda from './img/logoTienda.png';
 import NavBar from './components/NavBar';
 import './App.css';
+import ItemListContainer from './components/ItemListContainer';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <NavBar/>
-        <h1>Bienvenidos a mi Tienda</h1>
         <img alt= "logo de la Tienda" src={logoTienda} className="App-logo"/>
-        <br/>
-        <hr/>
-        <p>Les deseamos una buena compra!</p>
+        <NavBar/>
+        <ItemListContainer greeting="Hola! Este es nuestro Stock"/>
       </header>
     </div>
   );
