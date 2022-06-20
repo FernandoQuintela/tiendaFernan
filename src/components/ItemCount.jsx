@@ -17,7 +17,7 @@ function ItemCount({ stock, initial }) {
     }
 
     return(
-        <div>
+        <div className='agregarCarrito'>
             <button onClick={resta}> - </button>
             <span> {cant} </span>
             <button onClick={suma}> + </button>

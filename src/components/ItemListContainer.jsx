@@ -3,6 +3,7 @@ import ItemCount from "./ItemCount";
 import {productos} from "../mock/productos";
 import ItemList from "./ItemList";
 
+
 export default function ItemListContainer(props) {
     
     const [prod, setProd] = useState([])
@@ -28,7 +29,7 @@ export default function ItemListContainer(props) {
     console.log(props);
     return (
         <div className="contenedor-items">
-            <p>{props.greeting}</p>
+            <p className="tituloStock">{props.greeting}</p>
             <ItemCount stock={2} initial={1}></ItemCount>
             <ItemList items={prod}/>   
         </div>

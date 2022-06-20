@@ -4,12 +4,13 @@ function NavBar() {
     return (
         <div>
         <nav>
-            <ul>
-                <li>Stock</li>
-                <li>Contacto</li>
-                <CartWidget></CartWidget>    
+            <ul className="centradoNavBar">
+                <li className="itemMenu">Stock</li>
+                <li className="itemMenu">Ofertas</li>
+                <li className="itemMenu">Contacto</li>
             </ul>
         </nav>
+        <div><CartWidget></CartWidget></div>
         </div>
     )
 }
