@@ -1,16 +1,24 @@
 import React, {useState, useEffect} from "react";
 import {productos} from "../mock/productos";
 import ItemDetail from "./ItemDetail";
+import {useParams} from "react-router-dom";
 
 export default function ItemDetailContainer(props) {
     
-    const [Unicoprod, setUnicoprod] = useState({})
+    const [Unicoprod, setUnicoprod] = useState({});
+    const {id} = useParams();
+    
+    console.log("parametros", id)
 
     useEffect(()=>{
         const promesaUnicoProducto = new Promise ((resolver, rechazar)=>{
             setTimeout(() => {
-                resolver(productos[0]); 
-            }, 2000);
+                let idNum = parseInt(id);
+                const itemFound = productos.find (producto =>{
+                    return producto.id === idNum
+                })
+                resolver(itemFound);
+            }, 500);
         });
         promesaUnicoProducto
         .then((respuesta)=>{
@@ -19,7 +27,7 @@ export default function ItemDetailContainer(props) {
         .catch((errorCatch)=>{
             console.log(errorCatch)
         })
-    },[]
+    },[id]
     );
 
     console.log(Unicoprod);

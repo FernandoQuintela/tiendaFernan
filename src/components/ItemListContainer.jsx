@@ -2,18 +2,28 @@ import React, {useState, useEffect} from "react";
 import ItemCount from "./ItemCount";
 import {productos} from "../mock/productos";
 import ItemList from "./ItemList";
+import {useParams} from "react-router-dom";
 
 
 export default function ItemListContainer(props) {
     
-    const [prod, setProd] = useState([])
+    const [prod, setProd] = useState([]);
+    const {categoriaId} = useParams();
 
     useEffect(()=>{
         const promesaProductos = new Promise ((resolver, rechazar)=>{
             setTimeout(() => {
-                resolver(productos); 
-            }, 2000);
+                if(categoriaId === undefined)
+                    resolver(productos);
+                else{
+                    const itemsFound = productos.filter (producto => {
+                        return producto.categoria === categoriaId;
+                    })
+                    resolver(itemsFound);
+                }
+            }, 500);
         });
+        
         promesaProductos
         .then((respuesta)=>{
             setProd(respuesta);
@@ -21,7 +31,7 @@ export default function ItemListContainer(props) {
         .catch((errorCatch)=>{
             console.log(errorCatch)
         })
-    },[]
+    },[categoriaId]
     );
 
     console.log(prod);
@@ -31,7 +41,7 @@ export default function ItemListContainer(props) {
         <div className="contenedor-items">
             <p className="tituloStock">{props.greeting}</p>
             <ItemCount stock={2} initial={1}></ItemCount>
-            <ItemList items={prod}/>   
+            <ItemList items={prod}/> 
         </div>
     );
 };

@@ -1,6 +1,8 @@
 import React from "react";
+import {Link} from "react-router-dom";
 
 const Item = ({item})=> {
+
     console.log(item);
     return (
     <div className="bordeItem">
@@ -13,7 +15,9 @@ const Item = ({item})=> {
         <div>
             <h3>Precio ${item.precio}</h3>
         </div>
-        <button className="botonDetalleProducto">Ver detalle del producto</button>
+        <Link to={`/item/${item.id}`}>
+            <button className="botonDetalleProducto">Ver detalle del producto</button>
+        </Link>
     </div>
     );
 };
