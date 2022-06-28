@@ -40,7 +40,6 @@ export default function ItemListContainer(props) {
     return (
         <div className="contenedor-items">
             <p className="tituloStock">{props.greeting}</p>
-            <ItemCount stock={2} initial={1}></ItemCount>
             <ItemList items={prod}/> 
         </div>
     );

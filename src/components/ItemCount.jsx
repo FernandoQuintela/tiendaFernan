@@ -1,27 +1,27 @@
 import { useState } from 'react';
 
-function ItemCount({ stock, initial }) {
+function ItemCount({ stock, initial, onAdd }) {
 
-    const [cant, setCount] = useState(initial);
+    const [count, setCount] = useState(initial);
 
     function suma() {
-        if (cant >= stock) {alert("Se alcanzó el máximo permitido para este producto")}
+        if (count >= stock) {alert("Se alcanzó el máximo permitido para este producto")}
         else 
-        setCount(cant+1);
+        setCount(count+1);
     }
 
     function resta() {
-        if (cant <= 1) {alert("Se alcanzó el mínimo permitido para este producto")}
+        if (count <= 1) {alert("Se alcanzó el mínimo permitido para este producto")}
         else 
-        setCount(cant-1);
+        setCount(count-1);
     }
 
     return(
         <div className='agregarCarrito'>
             <button onClick={resta}> - </button>
-            <span> {cant} </span>
+            <span> {count} </span>
             <button onClick={suma}> + </button>
-            <button>Agregar al Carrito</button>
+            <button onClick={onAdd}>Agregar al Carrito</button>
         </div>
     )
 }
