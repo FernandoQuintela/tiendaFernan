@@ -16,12 +16,17 @@ function ItemCount({ stock, initial, onAdd }) {
         setCount(count-1);
     }
 
+    function handlerOnAdd() {
+        onAdd(count);
+        console.log(`cantidad items count = ${count}`)
+    }
+
     return(
         <div className='agregarCarrito'>
             <button onClick={resta}> - </button>
             <span> {count} </span>
             <button onClick={suma}> + </button>
-            <button onClick={onAdd}>Agregar al Carrito</button>
+            <button onClick={handlerOnAdd}>Agregar al Carrito</button>
         </div>
     )
 }

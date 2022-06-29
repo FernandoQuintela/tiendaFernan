@@ -5,8 +5,7 @@ import {Link} from "react-router-dom";
 function ItemDetail({item}) {
     const [ isAddedToCart, SetAddedToCart] = React.useState(false);
 
-    function handleOnAdd(cant){
-        console.log("cantidad de items=", cant);
+    function handleOnAdd(){
         SetAddedToCart(true);
     }
 
@@ -22,6 +21,7 @@ function ItemDetail({item}) {
                 ? <ItemCount onAdd={handleOnAdd} stock={2} initial={1}></ItemCount>
                 : <Link to={`/Cart`}><button>Finalizar Compra</button></Link>
             }
+          
         </div>
     )
 }
