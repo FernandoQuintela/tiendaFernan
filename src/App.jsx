@@ -6,6 +6,7 @@ import ItemDetailContainer from './components/ItemDetailContainer';
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import Contacto from './pages/Contacto';
 import Cart from './components/Cart';
+import { CartProvider } from './Context/CartContext';
 
 function App() {
   return (
@@ -14,16 +15,18 @@ function App() {
         <a href='/'>
         <img alt= "logo de la Tienda" src={logoTienda} className="App-logo"/>
         </a>
-        <BrowserRouter>
-          <div><NavBar/></div>
-          <Routes>
-            <Route path='/item/:id' element={<ItemDetailContainer/>}/>
-            <Route path='/' element={<ItemListContainer greeting="Nuestro Stock"/>}/>
-            <Route path='/categoria/:categoriaId' element={<ItemListContainer greeting="En Oferta"/>}/>
-            <Route path='/contacto' element={<Contacto/>}/>
-            <Route path='/Cart' element={<Cart/>}/>
-          </Routes>
-        </BrowserRouter>
+        <CartProvider>
+          <BrowserRouter>
+            <div><NavBar/></div>
+            <Routes>
+              <Route path='/item/:id' element={<ItemDetailContainer/>}/>
+              <Route path='/' element={<ItemListContainer greeting="Nuestro Stock"/>}/>
+              <Route path='/categoria/:categoriaId' element={<ItemListContainer greeting="En Oferta"/>}/>
+              <Route path='/contacto' element={<Contacto/>}/>
+              <Route path='/Cart' element={<Cart/>}/>
+            </Routes>
+          </BrowserRouter>
+        </CartProvider>
       </div>
     </section>
   );

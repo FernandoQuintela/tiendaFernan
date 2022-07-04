@@ -1,12 +1,17 @@
 import React from "react";
+import { useContext } from "react";
+import { CartContext } from "../Context/CartContext"
 
-function Cart () {
+const Cart = () => {
+    const { prueba } = useContext(CartContext);
     return (
         <div>
             <br/>
-            <p>PROXIMAMENTE AQUI TU COMPRA</p>    
+            <p>PROXIMAMENTE AQUI TU COMPRA</p>
+            <br/>
+            <button onClick={prueba}>Click</button>   
         </div>
-        )
-        }
+        );
+        };
 
-export default Cart
+export default Cart;

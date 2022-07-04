@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import ItemCount from "./ItemCount";
+//import ItemCount from "./ItemCount";
 import {productos} from "../mock/productos";
 import ItemList from "./ItemList";
 import {useParams} from "react-router-dom";

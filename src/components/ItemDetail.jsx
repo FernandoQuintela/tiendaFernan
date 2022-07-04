@@ -1,12 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import ItemCount from "./ItemCount";
 import {Link} from "react-router-dom";
+import { CartContext } from '../Context/CartContext';
+import { useContext } from "react";
+//import { createContext } from "react";
 
-function ItemDetail({item}) {
-    const [ isAddedToCart, SetAddedToCart] = React.useState(false);
+const ItemDetail = ({ item }) => {
+    
+    const {addToCart} = useContext (CartContext);
+    
+    const [ cant, setCant ] = useState(0);
 
-    function handleOnAdd(){
-        SetAddedToCart(true);
+    const handleOnAdd = (count) => {
+        setCant(count);
+        addToCart(item, count);
     }
 
     return (
@@ -17,7 +24,7 @@ function ItemDetail({item}) {
             <p>{item.descripcion}</p>
             
             {
-            (!isAddedToCart && <ItemCount></ItemCount>)
+            (!cant && <ItemCount></ItemCount>)
                 ? <ItemCount onAdd={handleOnAdd} stock={2} initial={1}></ItemCount>
                 : <Link to={`/Cart`}><button>Finalizar Compra</button></Link>
             }
